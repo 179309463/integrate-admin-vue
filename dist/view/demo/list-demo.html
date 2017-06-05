@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]> <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]> <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]> <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]> <html> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="renderer" content="webkit" />
+    <title>运营系统</title>
+    <link rel="stylesheet" href="../../common/css/common.css?v=e91a09aee3e4">
+    <link rel="stylesheet" href="../../lib/element-ui/element-ui.css?v=7d44b41c1423">
+</head>
+
+<body class="custom-style frame-page">
+<div id="app" v-cloak>
+    <el-breadcrumb>
+        <el-breadcrumb-item>运营系统</el-breadcrumb-item>
+        <el-breadcrumb-item>列表页示例</el-breadcrumb-item>
+    </el-breadcrumb>
+
+    <div class="cm-form cm-form-inline">
+        <el-form :inline="true" :model="formInline" class="demo-form-inline">
+            <el-form-item label="审批人">
+                <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+            </el-form-item>
+            <el-form-item label="活动区域">
+                <el-select v-model="formInline.region" placeholder="活动区域">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                </el-select>
+            </el-form-item><el-form-item>
+            <el-button type="primary" @click="onSubmit">查询</el-button>
+        </el-form-item>
+        </el-form>
+    </div>
+
+    <el-table
+        :data="tableData"
+        border
+        height="200"
+        style="width: 100%">
+        <el-table-column
+            fixed="left"
+            type="selection"
+            width="40">
+        </el-table-column>
+        <el-table-column
+            prop="date"
+            label="日期"
+            min-width="110">
+        </el-table-column>
+        <el-table-column
+            prop="name"
+            label="姓名">
+        </el-table-column>
+        <el-table-column
+            prop="province"
+            label="省份">
+        </el-table-column>
+        <el-table-column
+            prop="city"
+            label="市区">
+        </el-table-column>
+        <el-table-column
+            prop="address"
+            label="地址"
+            min-width="300">
+        </el-table-column>
+        <el-table-column
+            prop="zip"
+            label="邮编">
+        </el-table-column>
+        <el-table-column
+            prop="mobile"
+            label="联系方式"
+            min-width="110">
+        </el-table-column>
+        <el-table-column
+            prop="zip"
+            label="邮编">
+        </el-table-column>
+        <el-table-column
+            prop="zip"
+            label="邮编">
+        </el-table-column>
+        <el-table-column
+            prop="zip"
+            label="邮编">
+        </el-table-column>
+        <el-table-column
+            prop="zip"
+            label="邮编">
+        </el-table-column>
+        <el-table-column
+            fixed="right"
+            label="操作"
+            align="center"
+            width="120">
+            <template scope="scope">
+                <el-button @click="handleClick(scope.$index, scope.row)" type="text" size="small">查看</el-button>
+                <el-button type="text" size="small">编辑</el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+
+    <div class="cm-pagination-wrap">
+        <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage"
+            :page-sizes="[100, 200, 300, 400]"
+            :page-size="pageSize"
+            :total="total"
+            layout="total, sizes, prev, pager, next, jumper">
+        </el-pagination>
+    </div>
+</div>
+
+<script src="../../lib/vue/vue.min.js?v=985e21e6fbbf"></script>
+<script src="../../lib/vue-resource/vue-resource.min.js?v=dd2bcbc0405a"></script>
+<script src="../../lib/element-ui/element-ui.min.js?v=4e67170953ee"></script>
+<script src="../../common/js/common.js?v=91155ad9e100"></script>
+<script src="../../app/demo/list-demo.bundle.js?v=a63050d84e8d"></script>
+</body>
+</html>

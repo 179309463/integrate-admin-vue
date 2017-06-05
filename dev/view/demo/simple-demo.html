@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]> <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]> <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]> <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]> <html> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="renderer" content="webkit" />
+    <title>运营系统</title>
+    <link rel="stylesheet" href="../../common/css/common.css">
+    <link rel="stylesheet" href="../../lib/element-ui/element-ui.css">
+</head>
+
+<body class="custom-style frame-page">
+<div id="app" v-cloak>
+    <el-breadcrumb>
+        <el-breadcrumb-item>运营系统</el-breadcrumb-item>
+        <el-breadcrumb-item>常规组件示例</el-breadcrumb-item>
+    </el-breadcrumb>
+
+    <el-radio class="radio" v-model="radio" label="1">备选项</el-radio>
+    <el-radio class="radio" v-model="radio" label="2">备选项</el-radio>
+
+    <br><br>
+
+    <el-checkbox-group v-model="checkList">
+        <el-checkbox label="a">选项A</el-checkbox>
+        <el-checkbox label="b">选项B</el-checkbox>
+    </el-checkbox-group>
+
+    <br><br>
+
+    <el-input v-model="input" placeholder="请输入内容" icon="search" size="small"></el-input>
+
+    <br><br>
+
+    <el-select v-model="value" placeholder="请选择">
+        <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+        </el-option>
+    </el-select>
+
+    <br><br>
+
+    <el-select v-model="valueList" multiple size="small" placeholder="请选择">
+        <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+        </el-option>
+    </el-select>
+
+    <br><br>
+
+    <el-cascader
+        expand-trigger="hover"
+        :show-all-levels="false"
+        :options="cascaderOptions"
+        v-model="selectedOptions"
+        @change="handleChange">
+    </el-cascader>
+
+    <br><br>
+
+    <el-input
+        type="textarea"
+        :autosize="{ minRows: 2, maxRows: 4 }"
+        placeholder="请输入内容"
+        v-model="textarea">
+    </el-input>
+
+    <br><br>
+
+    <el-input placeholder="请输入内容" v-model="inputGroup">
+        <el-select v-model="select" slot="prepend" placeholder="请选择">
+            <el-option label="餐厅名" value="1"></el-option>
+            <el-option label="订单号" value="2"></el-option>
+            <el-option label="用户电话" value="3"></el-option>
+        </el-select>
+        <el-button slot="append" icon="search"></el-button>
+    </el-input>
+
+    <br><br>
+
+    <el-switch
+        v-model="switchValue"
+        on-color="#20a0ff"
+        off-color="#bfcbd9"
+        on-text=""
+        off-text=""
+        on-value="100"
+        off-value="0">
+    </el-switch>
+
+    <br><br>
+
+    <div style="width: 200px;">
+        <el-slider v-model="sliderValue" :format-tooltip="formatTooltip"></el-slider>
+    </div>
+
+    <br><br>
+
+    <el-date-picker
+        v-model="dateValue"
+        type="daterange"
+        format="yyyy-MM-dd"
+        placeholder="选择日期范围">
+    </el-date-picker>
+
+    <el-date-picker
+        v-model="dateTimeValue"
+        type="datetimerange"
+        format="yyyy-MM-dd HH:mm:ss"
+        placeholder="选择时间范围">
+    </el-date-picker>
+
+    <br><br>
+
+    <el-upload
+        action="https://jsonplaceholder.typicode.com/posts/"
+        list-type="picture-card"
+        :on-preview="handlePictureCardPreview"
+        :on-remove="handleRemove"
+        :before-upload="beforeUpload"
+        :on-success="handleUploadSuccess"
+        :on-error="handleUploadError">
+        <i class="el-icon-plus"></i>
+    </el-upload>
+    <el-dialog v-model="dialogVisible" size="tiny">
+        <img width="100%" :src="dialogImageUrl" alt="">
+    </el-dialog>
+
+    <br><br>
+
+    <el-button type="primary">默认按钮</el-button>
+</div>
+
+<script src="../../lib/vue/vue.min.js"></script>
+<script src="../../lib/vue-resource/vue-resource.min.js"></script>
+<script src="../../lib/element-ui/element-ui.min.js"></script>
+<script src="../../common/js/common.js"></script>
+<script src="../../app/demo/simple-demo.bundle.js"></script>
+</body>
+</html>

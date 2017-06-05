@@ -1,0 +1,1 @@
+"use strict";window.xhrPool=window.xhrPool||{count:0},Vue.use(VueResource),Vue.http.options.emulateJSON=!0,Vue.http.interceptors.push(function(o,u){"undefined"==typeof xhrPool[o.url]?(xhrPool[o.url]=o,xhrPool.count=xhrPool.count+1):xhrPool[o.url]=o,xhrPool.count>0,u(function(u){delete xhrPool[o.url],xhrPool.count=xhrPool.count-1,0==xhrPool.count,200!=u.body.code})});

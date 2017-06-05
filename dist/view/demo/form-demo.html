@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]> <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]> <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]> <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]> <html> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="renderer" content="webkit" />
+    <title>运营系统</title>
+    <link rel="stylesheet" href="../../common/css/common.css?v=e91a09aee3e4">
+    <link rel="stylesheet" href="../../lib/element-ui/element-ui.css?v=7d44b41c1423">
+</head>
+
+<body class="custom-style frame-page">
+<div id="app" v-cloak>
+    <el-breadcrumb>
+        <el-breadcrumb-item>运营系统</el-breadcrumb-item>
+        <el-breadcrumb-item>表单示例</el-breadcrumb-item>
+    </el-breadcrumb>
+
+    <div class="cm-form">
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+            <el-form-item label="活动名称" prop="name">
+                <el-input v-model="ruleForm.name"></el-input>
+            </el-form-item>
+            <el-form-item label="活动区域" prop="region">
+                <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="活动时间" required>
+                <el-col :span="11">
+                    <el-form-item prop="date1">
+                        <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
+                    </el-form-item>
+                </el-col>
+                <el-col class="line" :span="2" style="text-align: center;">-</el-col>
+                <el-col :span="11">
+                    <el-form-item prop="date2">
+                        <el-time-picker type="fixed-time" placeholder="选择时间" v-model="ruleForm.date2" style="width: 100%;"></el-time-picker>
+                    </el-form-item>
+                </el-col>
+            </el-form-item>
+            <el-form-item label="即时配送" prop="delivery">
+                <el-switch on-text="" off-text="" v-model="ruleForm.delivery"></el-switch>
+            </el-form-item>
+            <el-form-item label="活动性质" prop="type">
+                <el-checkbox-group v-model="ruleForm.type">
+                    <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
+                    <el-checkbox label="地推活动" name="type"></el-checkbox>
+                    <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+                    <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
+                </el-checkbox-group>
+            </el-form-item>
+            <el-form-item label="特殊资源" prop="resource">
+                <el-radio-group v-model="ruleForm.resource">
+                    <el-radio label="1">线上品牌商赞助</el-radio>
+                    <el-radio label="2">线下场地免费</el-radio>
+                </el-radio-group>
+            </el-form-item>
+            <el-form-item label="活动形式" prop="desc">
+                <el-input type="textarea" v-model="ruleForm.desc" :autosize="{ minRows: 4, maxRows: 8 }"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+                <el-button @click="resetForm('ruleForm')">重置</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+</div>
+
+<script src="../../lib/vue/vue.min.js?v=985e21e6fbbf"></script>
+<script src="../../lib/vue-resource/vue-resource.min.js?v=dd2bcbc0405a"></script>
+<script src="../../lib/element-ui/element-ui.min.js?v=4e67170953ee"></script>
+<script src="../../common/js/common.js?v=91155ad9e100"></script>
+<script src="../../app/demo/form-demo.bundle.js?v=cee18056d745"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 7]> <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]> <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]> <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]> <html> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="renderer" content="webkit" />
+    <title>运营系统</title>
+    <link rel="stylesheet" href="../common/css/common.css">
+    <link rel="stylesheet" href="../lib/element-ui/element-ui.css">
+</head>
+
+<body class="custom-style">
+<div id="app" v-cloak>
+    <div class="page-wrap">
+        <div class="header">
+            <p class="title">运营系统</p>
+            <p class="msg">
+                欢迎你回来，<a href="#">admin</a>&nbsp;&nbsp;【<a href="#">注销</a>】
+            </p>
+        </div>
+        <div class="menu-wrap" v-auto-height data-del-height="84">
+            <el-menu theme="dark" @open="handleOpen" @close="handleClose" @select="handleSelect">
+                <!-- 一级菜单 -->
+                <el-submenu v-for="itemA in menu"
+                            v-if="itemA.subMenu.length > 0"
+                            :index="itemA.id">
+                    <template slot="title">{{itemA.name}}</template>
+
+                    <!-- 二级菜单 -->
+                    <el-submenu v-for="itemB in itemA.subMenu"
+                                v-if="itemB.subMenu.length > 0"
+                                :index="itemB.id">
+                        <template slot="title">{{itemB.name}}</template>
+
+                        <!-- 三级菜单 -->
+                        <el-menu-item v-for="itemC in itemB.subMenu"
+                                      v-if="itemC.subMenu.length == 0"
+                                      :index="itemC.id"
+                                      :route="itemC.id + '|' + itemC.name + '|' + itemC.href + '|' + itemC.target">
+                            {{itemC.name}}
+                        </el-menu-item>
+                        <!-- 三级菜单 end -->
+
+                    </el-submenu>
+                    <el-menu-item v-for="itemB in itemA.subMenu"
+                                  v-if="itemB.subMenu.length == 0"
+                                  :index="itemB.id"
+                                  :route="itemB.id + '|' + itemB.name + '|' + itemB.href + '|' + itemB.target">
+                        {{itemB.name}}
+                    </el-menu-item>
+                    <!-- 二级菜单 end -->
+
+                </el-submenu>
+                <el-menu-item v-for="itemA in menu"
+                              v-if="itemA.subMenu.length == 0"
+                              :index="itemA.id"
+                              :route="itemA.id + '|' + itemA.name + '|' + itemA.href + '|' + itemA.target">
+                    {{itemA.name}}
+                </el-menu-item>
+                <!-- 一级菜单 end -->
+            </el-menu>
+        </div>
+
+        <div class="cont-wrap" v-auto-height data-del-height="84">
+            <el-tabs v-model="tabValue" type="card" closable @tab-remove="removeTab">
+                <el-tab-pane
+                    v-for="(item, index) in tabs"
+                    :key="item.name"
+                    :name="item.name"
+                    :label="item.title">
+                    <iframe class="frame" frameborder="0" scrolling="auto" :src="item.content" :name="item.name"></iframe>
+                </el-tab-pane>
+            </el-tabs>
+        </div>
+        <div class="footer">2017 © Powered By <a href="#">技术研发部</a></div>
+    </div>
+</div>
+
+<script src="../lib/vue/vue.min.js"></script>
+<script src="../lib/vue-resource/vue-resource.min.js"></script>
+<script src="../lib/element-ui/element-ui.min.js"></script>
+<script src="../common/js/common.js"></script>
+<script src="../app/index.bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+    "code": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "组件示例",
+            "href": "",
+            "target": "mainFrame",
+            "parent_id": 0
+        },
+        {
+            "id": 2,
+            "name": "常规组件示例",
+            "href": "/view/demo/simple-demo.html",
+            "target": "mainFrame",
+            "parent_id": 1
+        },
+        {
+            "id": 3,
+            "name": "表单示例",
+            "href": "/view/demo/form-demo.html",
+            "target": "mainFrame",
+            "parent_id": 1
+        },
+        {
+            "id": 4,
+            "name": "列表页示例",
+            "href": "/view/demo/list-demo.html",
+            "target": "mainFrame",
+            "parent_id": 1
+        }
+    ],
+    "msg": "success"
+}
